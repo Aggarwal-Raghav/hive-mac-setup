@@ -1,0 +1,92 @@
+<configuration>
+
+  <property>
+    <name>tez.lib.uris</name>
+    <value>hdfs://localhost:9000/apps/tez,hdfs://localhost:9000/apps/tez/lib</value>
+  </property>
+
+  <property>
+    <name>tez.am.log.level</name>
+    <value>INFO</value>
+    <description>Root Logging level passed to the Tez app master</description>
+  </property>
+
+  <property>
+    <name>tez.am.resource.memory.mb</name>
+    <value>1024</value> 
+  </property>
+
+  <property>
+    <name>tez.am.launch.cluster-default.cmd-opts</name>
+    <value>-server -Djava.net.preferIPv4Stack=true</value>
+    <description>Cluster default Java options for the Tez AppMaster process. These will be prepended to the properties specified via tez.am.launch.cmd-opts</description>
+  </property>
+
+  <property>
+    <name>tez.am.launch.cmd-opts</name>
+    <value>-XX:+PrintGCDetails -verbose:gc -XX:+PrintGCTimeStamps -XX:+UseNUMA -XX:+UseParallelGC</value>
+  </property>
+
+  <property>
+    <name>tez.task.resource.memory.mb</name>
+    <value>1024</value>
+    <description>The amount of memory to be used by launched tasks.
+      Used only if the value is not specified explicitly by the DAG definition.
+    </description>
+  </property>
+
+  <property>
+    <name>tez.task.launch.cmd-opts</name>
+    <value>-XX:+PrintGCDetails -verbose:gc -XX:+PrintGCTimeStamps -XX:+UseNUMA -XX:+UseParallelGC</value>
+    <description>Java options for tasks. The Xmx value is derived based on tez.task.resource.memory.mb and is 80% of this value by default.
+      Used only if the value is not specified explicitly by the DAG definition.
+    </description>
+  </property>
+
+  <property>
+    <name>tez.runtime.compress</name>
+    <value>true</value>
+    <description>Whether intermediate data should be compressed or not</description>
+  </property>
+
+  <property>
+    <name>tez.runtime.compress.codec</name>
+    <value>org.apache.hadoop.io.compress.SnappyCodec</value>
+    <description>The coded to be used if compressing intermediate data. Only
+      applicable if tez.runtime.compress is enabled
+    </description>
+  </property>
+
+  <property>
+    <name>tez.runtime.io.sort.mb</name>
+    <value>408</value>
+    <description>The size of the sort buffer when output needs to be sorted</description>
+  </property>
+
+  <property>
+    <name>tez.runtime.unordered.output.buffer.size-mb</name>
+    <value>102</value>
+    <description>The size of the buffer when output does not require to be sorted</description>
+  </property>
+
+  <property>
+    <name>tez.history.logging.service.class</name>
+    <value>org.apache.tez.dag.history.logging.ats.ATSHistoryLoggingService</value>
+  </property>
+
+  <property>
+    <name>tez.local.mode</name>
+    <value>false</value>
+  </property>
+
+  <property>
+    <name>tez.use.cluster.hadoop-libs</name>
+    <value>false</value>
+  </property>
+
+  <property>
+    <name>tez.queue.name</name>
+    <value>default</value>
+  </property>
+
+</configuration>
