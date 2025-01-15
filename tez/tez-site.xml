@@ -24,7 +24,7 @@
 
   <property>
     <name>tez.am.launch.cmd-opts</name>
-    <value>-XX:+PrintGCDetails -verbose:gc -XX:+PrintGCTimeStamps -XX:+UseNUMA -XX:+UseParallelGC</value>
+    <value>-XX:+PrintGCDetails -verbose:gc -XX:+PrintGCTimeStamps -XX:+UseNUMA -XX:+UseParallelGC -verbose:class</value>
   </property>
 
   <property>
@@ -37,7 +37,7 @@
 
   <property>
     <name>tez.task.launch.cmd-opts</name>
-    <value>-XX:+PrintGCDetails -verbose:gc -XX:+PrintGCTimeStamps -XX:+UseNUMA -XX:+UseParallelGC</value>
+    <value>-XX:+PrintGCDetails -verbose:gc -XX:+PrintGCTimeStamps -XX:+UseNUMA -XX:+UseParallelGC -verbose:class</value>
     <description>Java options for tasks. The Xmx value is derived based on tez.task.resource.memory.mb and is 80% of this value by default.
       Used only if the value is not specified explicitly by the DAG definition.
     </description>
@@ -45,17 +45,17 @@
 
   <property>
     <name>tez.runtime.compress</name>
-    <value>true</value>
+    <value>false</value>
     <description>Whether intermediate data should be compressed or not</description>
   </property>
 
-  <property>
-    <name>tez.runtime.compress.codec</name>
-    <value>org.apache.hadoop.io.compress.SnappyCodec</value>
-    <description>The coded to be used if compressing intermediate data. Only
-      applicable if tez.runtime.compress is enabled
-    </description>
-  </property>
+  <!-- <property> -->
+  <!--   <name>tez.runtime.compress.codec</name> -->
+  <!--   <value>org.apache.hadoop.io.compress.SnappyCodec</value> -->
+  <!--   <description>The coded to be used if compressing intermediate data. Only -->
+  <!--     applicable if tez.runtime.compress is enabled -->
+  <!--   </description> -->
+  <!-- </property> -->
 
   <property>
     <name>tez.runtime.io.sort.mb</name>

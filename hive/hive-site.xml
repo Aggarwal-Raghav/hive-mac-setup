@@ -2,12 +2,22 @@
 
     <property>
       <name>javax.jdo.option.ConnectionURL</name>
-      <value>jdbc:derby:metastore_db;create=true</value>
+      <value>jdbc:mysql://localhost:3307/hive</value>
     </property>
 
     <property>
       <name>javax.jdo.option.ConnectionDriverName</name>
-      <value>org.apache.derby.jdbc.EmbeddedDriver</value>
+      <value>com.mysql.jdbc.Driver</value>
+    </property>
+
+    <property>
+      <name>javax.jdo.option.ConnectionUserName</name>
+      <value>root</value>
+    </property>
+
+    <property>
+      <name>javax.jdo.option.ConnectionPassword</name>
+      <value>qwerty@123</value>
     </property>
 
     <property>
@@ -65,24 +75,39 @@
       <value>false</value>
     </property>
 
-    <!-- <property> -->
-    <!--   <name>hive.hook.proto.base-directory</name> -->
-    <!--   <value>/warehouse/tablespace/external/hive/sys.db/query_data</value> -->
-    <!-- </property> -->
+    <property>
+      <name>hive.txn.manager</name>
+      <value>org.apache.hadoop.hive.ql.lockmgr.DbTxnManager</value>
+    </property>
 
-    <!-- <property> -->
-    <!--   <name>hive.exec.failure.hooks</name> -->
-    <!--   <value>org.apache.hadoop.hive.ql.hooks.HiveProtoLoggingHook</value> -->
-    <!-- </property> -->
+    <property>
+      <name>hive.support.concurrency</name>
+      <value>true</value>
+    </property>
 
-    <!-- <property> -->
-    <!--   <name>hive.exec.pre.hooks</name> -->
-    <!--   <value>org.apache.hadoop.hive.ql.hooks.HiveProtoLoggingHook</value> -->
-    <!-- </property> -->
+    <property>
+      <name>hive.resultset.use.unique.column.names</name>
+      <value>true</value>
+    </property>
 
-    <!-- <property> -->
-    <!--   <name>hive.exec.post.hooks</name> -->
-    <!--   <value>org.apache.hadoop.hive.ql.hooks.HiveProtoLoggingHook</value> -->
-    <!-- </property> -->
+    <property>
+      <name>hive.security.authorization.enabled</name>
+      <value>true</value>
+    </property>
+
+    <property>
+      <name>hive.security.authorization.manager</name>
+      <value>org.apache.hadoop.hive.ql.security.authorization.StorageBasedAuthorizationProvider</value>
+    </property>
+
+    <property>
+      <name>hive.support.concurrency</name>
+      <value>true</value>
+    </property>
+
+    <property>
+      <name>hive.txn.manager</name>
+      <value>org.apache.hadoop.hive.ql.lockmgr.DbTxnManager</value>
+    </property>
 
 </configuration>
