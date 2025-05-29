@@ -110,4 +110,19 @@
       <value>org.apache.hadoop.hive.ql.lockmgr.DbTxnManager</value>
     </property>
 
+    <property>
+      <name>hive.metastore.failure.retries</name>
+      <value>10</value>
+    </property>
+
+    <property>
+      <name>hive.metastore.client.socket.timeout</name>
+      <value>1800</value>
+    </property>
+
+    <!-- <property> -->
+    <!--   <name>hive.exec.post.hooks</name> -->
+    <!--   <value>org.apache.hadoop.hive.ql.hooks.LineageLogger</value> -->
+    <!-- </property> -->
+
 </configuration>

@@ -24,7 +24,7 @@
 
   <property>
     <name>tez.am.launch.cmd-opts</name>
-    <value>-XX:+PrintGCDetails -verbose:gc -XX:+PrintGCTimeStamps -XX:+UseNUMA -XX:+UseParallelGC -verbose:class</value>
+    <value>-Xlog:gc*=info,class+load=info::time,uptime,level,tags -XX:+UseNUMA</value>
   </property>
 
   <property>
@@ -37,7 +37,7 @@
 
   <property>
     <name>tez.task.launch.cmd-opts</name>
-    <value>-XX:+PrintGCDetails -verbose:gc -XX:+PrintGCTimeStamps -XX:+UseNUMA -XX:+UseParallelGC -verbose:class</value>
+    <value>-Xlog:gc*=info,class+load=info::time,uptime,level,tags -XX:+UseNUMA</value>
     <description>Java options for tasks. The Xmx value is derived based on tez.task.resource.memory.mb and is 80% of this value by default.
       Used only if the value is not specified explicitly by the DAG definition.
     </description>
@@ -59,7 +59,7 @@
 
   <property>
     <name>tez.runtime.io.sort.mb</name>
-    <value>408</value>
+    <value>409</value>
     <description>The size of the sort buffer when output needs to be sorted</description>
   </property>
 
@@ -87,6 +87,11 @@
   <property>
     <name>tez.queue.name</name>
     <value>default</value>
+  </property>
+
+  <property>
+    <name>tez.generate.debug.artifacts</name>
+    <value>true</value>
   </property>
 
 </configuration>
