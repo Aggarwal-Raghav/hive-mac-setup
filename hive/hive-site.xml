@@ -1,128 +1,153 @@
 <configuration>
 
-    <property>
-      <name>javax.jdo.option.ConnectionURL</name>
-      <value>jdbc:mysql://localhost:3307/hive</value>
-    </property>
+  <property>
+    <name>javax.jdo.option.ConnectionURL</name>
+    <value>jdbc:mysql://localhost:3307/hive</value>
+  </property>
 
-    <property>
-      <name>javax.jdo.option.ConnectionDriverName</name>
-      <value>com.mysql.jdbc.Driver</value>
-    </property>
+  <property>
+    <name>javax.jdo.option.ConnectionDriverName</name>
+    <value>com.mysql.jdbc.Driver</value>
+  </property>
 
-    <property>
-      <name>javax.jdo.option.ConnectionUserName</name>
-      <value>root</value>
-    </property>
+  <property>
+    <name>javax.jdo.option.ConnectionUserName</name>
+    <value>root</value>
+  </property>
 
-    <property>
-      <name>javax.jdo.option.ConnectionPassword</name>
-      <value>qwerty@123</value>
-    </property>
+  <property>
+    <name>javax.jdo.option.ConnectionPassword</name>
+    <value>qwerty@123</value>
+  </property>
 
-    <property>
-      <name>javax.jdo.PersistenceManagerFactoryClass</name>
-      <value>org.datanucleus.api.jdo.JDOPersistenceManagerFactory</value>
-    </property>
+  <property>
+    <name>javax.jdo.PersistenceManagerFactoryClass</name>
+    <value>org.datanucleus.api.jdo.JDOPersistenceManagerFactory</value>
+  </property>
 
-    <property>
-      <name>hive.metastore.warehouse.dir</name>
-      <value>/user/hive/warehouse</value>
-    </property>
+  <property>
+    <name>hive.metastore.warehouse.dir</name>
+    <value>/user/hive/warehouse</value>
+  </property>
 
-    <property>
-      <name>hive.metastore.uris</name>
-      <value>thrift://localhost:9083</value>
-    </property>
+  <property>
+    <name>hive.metastore.uris</name>
+    <value>thrift://localhost:9083</value>
+  </property>
 
-    <property>
-      <name>hive.metastore.event.db.notification.api.auth</name>
-      <value>false</value>
-    </property>
+  <property>
+    <name>hive.metastore.event.db.notification.api.auth</name>
+    <value>false</value>
+  </property>
 
-    <property>
-      <name>hive.server2.thrift.port</name>
-      <value>10000</value>
-    </property>
+  <property>
+    <name>hive.server2.thrift.port</name>
+    <value>10000</value>
+  </property>
 
-    <property>
-      <name>hive.server2.enable.doAs</name>
-      <value>false</value>
-    </property>
+  <property>
+    <name>hive.server2.enable.doAs</name>
+    <value>false</value>
+  </property>
 
-    <property>
-      <name>hive.execution.engine</name>
-      <value>tez</value>
-    </property>
+  <property>
+    <name>hive.execution.engine</name>
+    <value>tez</value>
+  </property>
 
-    <property>
-      <name>hive.metastore.port</name>
-      <value>9083</value>
-    </property>
+  <property>
+    <name>hive.metastore.port</name>
+    <value>9083</value>
+  </property>
 
-    <property>
-      <name>hive.tez.container.size</name>
-      <value>512</value>
-    </property>
+  <property>
+    <name>hive.tez.container.size</name>
+    <value>1024</value>
+  </property>
 
-    <property>
-      <name>hive.tez.exec.print.summary</name>
-      <value>true</value>
-    </property>
+  <property>
+    <name>hive.tez.exec.print.summary</name>
+    <value>true</value>
+  </property>
 
-    <property>
-      <name>hive.security.authorization.enabled</name>
-      <value>false</value>
-    </property>
+  <property>
+    <name>hive.txn.manager</name>
+    <value>org.apache.hadoop.hive.ql.lockmgr.DbTxnManager</value>
+  </property>
 
-    <property>
-      <name>hive.txn.manager</name>
-      <value>org.apache.hadoop.hive.ql.lockmgr.DbTxnManager</value>
-    </property>
+  <property>
+    <name>hive.support.concurrency</name>
+    <value>true</value>
+  </property>
 
-    <property>
-      <name>hive.support.concurrency</name>
-      <value>true</value>
-    </property>
+  <property>
+    <name>hive.resultset.use.unique.column.names</name>
+    <value>true</value>
+  </property>
 
-    <property>
-      <name>hive.resultset.use.unique.column.names</name>
-      <value>true</value>
-    </property>
+  <property>
+    <name>hive.security.authorization.enabled</name>
+    <value>true</value>
+  </property>
 
-    <property>
-      <name>hive.security.authorization.enabled</name>
-      <value>true</value>
-    </property>
+  <property>
+    <name>hive.security.authorization.manager</name>
+    <value>org.apache.hadoop.hive.ql.security.authorization.StorageBasedAuthorizationProvider</value>
+  </property>
 
-    <property>
-      <name>hive.security.authorization.manager</name>
-      <value>org.apache.hadoop.hive.ql.security.authorization.StorageBasedAuthorizationProvider</value>
-    </property>
+  <property>
+    <name>hive.support.concurrency</name>
+    <value>true</value>
+  </property>
 
-    <property>
-      <name>hive.support.concurrency</name>
-      <value>true</value>
-    </property>
+  <property>
+    <name>hive.txn.manager</name>
+    <value>org.apache.hadoop.hive.ql.lockmgr.DbTxnManager</value>
+  </property>
 
-    <property>
-      <name>hive.txn.manager</name>
-      <value>org.apache.hadoop.hive.ql.lockmgr.DbTxnManager</value>
-    </property>
+  <property>
+    <name>hive.metastore.failure.retries</name>
+    <value>10</value>
+  </property>
 
-    <property>
-      <name>hive.metastore.failure.retries</name>
-      <value>10</value>
-    </property>
+  <property>
+    <name>hive.metastore.client.socket.timeout</name>
+    <value>1800</value>
+  </property>
 
-    <property>
-      <name>hive.metastore.client.socket.timeout</name>
-      <value>1800</value>
-    </property>
+  <property>
+    <name>hive.exec.post.hooks</name>
+    <value>org.apache.hadoop.hive.ql.hooks.HiveProtoLoggingHook</value>
+  </property>
 
-    <!-- <property> -->
-    <!--   <name>hive.exec.post.hooks</name> -->
-    <!--   <value>org.apache.hadoop.hive.ql.hooks.LineageLogger</value> -->
-    <!-- </property> -->
+  <property>
+    <name>hive.exec.pre.hooks</name>
+    <value>org.apache.hadoop.hive.ql.hooks.HiveProtoLoggingHook</value>
+  </property>
+
+  <property>
+    <name>hive.exec.failure.hooks</name>
+    <value>org.apache.hadoop.hive.ql.hooks.HiveProtoLoggingHook</value>
+  </property>
+
+  <property>
+    <name>hive.hook.proto.base-directory</name>
+    <value>/user/hive/warehouse/proto/</value>
+  </property>
+
+  <property>
+    <name>hive.server2.thrift.max.worker.threads</name>
+    <value>10000</value>
+  </property>
+
+  <property>
+    <name>hive.notification.event.poll.interval</name>
+    <value>1800</value>
+  </property>
+
+  <property>
+    <name>hive.scheduled.queries.executor.enabled</name>
+    <value>false</value>
+  </property>
 
 </configuration>

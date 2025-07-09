@@ -1,20 +1,31 @@
-export HADOOP_HOME=/Users/raghav/Desktop/setup/hadoop
-export HIVE_HOME=/Users/raghav/Desktop/setup/hive
-export HIVE_CONF_DIR=/Users/raghav/Desktop/setup/hive/conf
+export HADOOP_HOME=$HOME/Desktop/setup/hadoop
+export HIVE_HOME=$HOME/Desktop/setup/hive
+export HIVE_CONF_DIR=$HOME/Desktop/setup/hive/conf
+export HIVE_LOG_DIR=/tmp/hadoop/hive
 
-# export HADOOP_CLIENT_OPTS="$HADOOP_CLIENT_OPTS --add-opens java.base/java.net=ALL-UNNAMED --add-opens java.base/java.util=ALL-UNNAMED --add-opens java.base/java.lang=ALL-UNNAMED --add-opens java.base/java.nio=ALL-UNNAMED --add-opens java.base/java.util.concurrent=ALL-UNNAMED --add-opens java.base/java.util.concurrent.atomic=ALL-UNNAMED --add-opens java.base/java.util.regex=ALL-UNNAMED --add-opens java.base/java.lang.reflect=ALL-UNNAMED --add-opens java.sql/java.sql=ALL-UNNAMED --add-opens java.base/java.io=ALL-UNNAMED --add-opens java.base/java.text=ALL-UNNAMED"
 
 if [ "$SERVICE" = "beeline" ]; then
     export HADOOP_HEAPSIZE=128
-    export HADOOP_CLIENT_OPTS="$HADOOP_CLIENT_OPTS -Djava.io.tmpdir=/tmp -Dhive.log.dir=/tmp/hadoop/hive -XX:+UseG1GC -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/tmp/hadoop/hive -Dhive.log.file=beeline.log -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005"
+    export HADOOP_CLIENT_OPTS="$HADOOP_CLIENT_OPTS -Djava.io.tmpdir=/tmp -Dhive.log.dir=$HIVE_LOG_DIR \
+        -XX:+UseG1GC -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=$HIVE_LOG_DIR \
+        -Dhive.log.file=beeline.log -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005"
 
 fi
 if [ "$SERVICE" = "metastore" ]; then
-    export HADOOP_HEAPSIZE=8192
-    export HADOOP_CLIENT_OPTS="$HADOOP_CLIENT_OPTS -Djava.io.tmpdir=/tmp -Dhive.log.dir=/tmp/hadoop/hive -Dhive.log.file=hivemetastore.log -Dlog4j.configurationFile=$HIVE_CONF_DIR/hive-log4j2.properties -XX:+UseG1GC -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/tmp/hadoop/hive -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5006 -agentpath:/Users/raghav/Desktop/software/async-profiler-4.0-macos/lib/libasyncProfiler.dylib=start,event=cpu,file=/tmp/hadoop/hive/hms_profile.html"
+    export HADOOP_HEAPSIZE=2048
+    export HADOOP_CLIENT_OPTS="$HADOOP_CLIENT_OPTS -Djava.io.tmpdir=/tmp -Dhive.log.dir=$HIVE_LOG_DIR \
+        -Dhive.log.file=hivemetastore.log -XX:+UseG1GC -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=$HIVE_LOG_DIR \
+        -Xlog:gc*=info:file=$HIVE_LOG_DIR/gc-${SERVICE}-%p-%t.log:time,uptime,level,tags:filecount=5,filesize=16M \
+        -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5006 \
+        -agentpath:$HOME/Desktop/software/async-profiler-4.0-macos/lib/libasyncProfiler.dylib=start,event=cpu,file=$HIVE_LOG_DIR/hms_profile.html"
 fi
 
 if [ "$SERVICE" = "hiveserver2" ]; then
     export HADOOP_HEAPSIZE=2048
-    export HADOOP_CLIENT_OPTS="$HADOOP_CLIENT_OPTS -Djava.io.tmpdir=/tmp -Dhive.log.dir=/tmp/hadoop/hive -Dhive.log.file=hiveserver2.log -Dlog4j.configurationFile=$HIVE_CONF_DIR/hive-log4j2.properties -XX:+UseG1GC -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/tmp/hadoop/hive -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5007 -agentpath:/Users/raghav/Desktop/software/async-profiler-4.0-macos/lib/libasyncProfiler.dylib=start,event=cpu,file=/tmp/hadoop/hive/hs2_profile.html"
+    export HADOOP_CLIENT_OPTS="$HADOOP_CLIENT_OPTS -Djava.io.tmpdir=/tmp -Dhive.log.dir=$HIVE_LOG_DIR \
+        -Dhive.log.file=hiveserver2.log -XX:+UseG1GC -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=$HIVE_LOG_DIR \
+        -Xlog:gc*=info:file=$HIVE_LOG_DIR/gc-${SERVICE}-%p-%t.log:time,uptime,level,tags:filecount=5,filesize=16M \
+        -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5007 \
+        -agentpath:$HOME/Desktop/software/async-profiler-4.0-macos/lib/libasyncProfiler.dylib=start,event=cpu,file=$HIVE_LOG_DIR/hs2_profile.html"
 fi
+
