@@ -5,25 +5,25 @@
         <value>mapreduce_shuffle</value>
     </property>
 
-<!--     <property> -->
-<!--         <name>yarn.nodemanager.resource.memory-mb</name> -->
-<!--         <value>512</value> -->
-<!--     </property> -->
-
-<!--     <property> -->
-<!--         <name>yarn.scheduler.minimum-allocation-mb</name> -->
-<!--         <value>128</value> -->
-<!--     </property> -->
-
-    <!-- <property> -->
-    <!--     <name>yarn.nodemanager.vmem-check-enabled</name> -->
-    <!--     <value>false</value> -->
-    <!-- </property> -->
-
-    <!-- <property> -->
-    <!--     <name>yarn.nodemanager.vmem-pmem-ratio</name> -->
-    <!--     <value>4</value> -->
-    <!-- </property> -->
+     <!-- <property> -->
+     <!--     <name>yarn.nodemanager.resource.memory-mb</name> -->
+     <!--     <value>512</value> -->
+     <!-- </property> -->
+     <!---->
+     <!-- <property> -->
+     <!--     <name>yarn.scheduler.minimum-allocation-mb</name> -->
+     <!--     <value>128</value> -->
+     <!-- </property> -->
+     <!---->
+     <!-- <property> -->
+     <!--     <name>yarn.nodemanager.vmem-check-enabled</name> -->
+     <!--     <value>false</value> -->
+     <!-- </property> -->
+     <!---->
+     <!-- <property> -->
+     <!--     <name>yarn.nodemanager.vmem-pmem-ratio</name> -->
+     <!--     <value>4</value> -->
+     <!-- </property> -->
 
     <property>
         <name>yarn.resourcemanager.resource-tracker.address</name>
@@ -38,6 +38,52 @@
     <property>
         <name>yarn.resourcemanager.address</name>
         <value>localhost:8050</value>
+    </property>
+
+    <property>
+        <name>yarn.timeline-service.enabled</name>
+        <value>true</value>
+    </property>
+
+    <property>
+        <name>yarn.timeline-service.hostname</name>
+        <value>localhost</value>
+    </property>
+
+    <property>
+        <name>yarn.timeline-service.address</name>
+        <value>localhost:10200</value>
+    </property>
+
+    <property>
+        <name>yarn.timeline-service.webapp.address</name>
+        <value>localhost:8188</value>
+    </property>
+
+    <property>
+        <name>yarn.resourcemanager.system-metrics-publisher.enabled</name>
+        <value>true</value>
+    </property>
+
+    <property>
+        <name>yarn.timeline-service.http-cross-origin.enabled</name>
+        <value>true</value>
+    </property>
+
+    <property>
+        <name>yarn.timeline-service.http-cross-origin.allowed-origins</name>
+        <value>*</value>
+    </property>
+
+    <property>
+        <name>yarn.timeline-service.http-cross-origin.allowed-methods</name>
+        <value>GET,POST,HEAD,OPTIONS,PUT</value>
+    </property>
+
+    <!-- This is added because of missing leveldbjni64-1.8 in mac -->
+    <property>
+      <name>yarn.timeline-service.store-class</name>
+      <value>org.apache.hadoop.yarn.server.timeline.MemoryTimelineStore</value>
     </property>
 
 </configuration>

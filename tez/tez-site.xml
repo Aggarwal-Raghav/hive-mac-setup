@@ -94,4 +94,14 @@
     <value>false</value>
   </property>
 
+  <property>
+    <name>tez.history.logging.proto-base-dir</name>
+    <value>/tmp/data</value>
+  </property>
+
+  <property>
+    <name>tez.tez-ui.history-url.base</name>
+    <value>http://localhost:9999/tez-ui/</value>
+  </property>
+
 </configuration>
